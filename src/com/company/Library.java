@@ -10,8 +10,7 @@ import java.util.ArrayList;
  * lent to users. Also tracks fines payable, paid and books in the
  * collection.
  */
-public class Library
-{
+public class Library{
 
     private ArrayList<Book> books;
     private String name;
@@ -20,24 +19,21 @@ public class Library
     /**
      * Constructor for objects of class Library
      */
-    public Library(String aName)
-    {
+    public Library(String aName){
         name = aName;
         books = new ArrayList<>();
     }
     /**
      *  Creates anonymous object and adds it to the collection books.
      */
-    public void addBook(String theAuthor, String theTitle, String theId)
-    {
+    public void addBook(String theAuthor, String theTitle, String theId){
         books.add(new Book(theAuthor, theTitle, theId));
     }
     /**
      * Multiplies bookPrice by 0.02 to find 2% of the books price
      * and multiplies that by daysLate to get the fine payable.
      */
-    public double calculateFine(double bookPrice, int daysLate)
-    {
+    public double calculateFine(double bookPrice, int daysLate){
         return ((bookPrice*0.02)*daysLate);
     }
     /**
@@ -50,12 +46,10 @@ public class Library
      *  compared. Once the list has been searched, the list local
      *  to this method is returned.
      */
-    public ArrayList<Book> getMatchingBooks(String searchTitle)
-    {
+    public ArrayList<Book> getMatchingBooks(String searchTitle){
         ArrayList<Book> matches = new ArrayList<>();
         int index = 0;
-        while(index<books.size())
-        {
+        while(index<books.size()){
             String bookTitle = books.get(index).getTitle();
             if(bookTitle.equals(searchTitle)){
                 matches.add(books.get(index));
@@ -78,13 +72,10 @@ public class Library
      * true is not returned, it  will return false.
      */
 
-    public boolean isAvailable(Book aBook)
-    {
+    public boolean isAvailable(Book aBook){
         int index = 0;
-        while(index<books.size())
-        {
-            if((books.get(index).getTitle().equals(aBook.getTitle())) && (!books.get(index).isOnLoan()))
-            {
+        while(index<books.size()){
+            if((books.get(index).getTitle().equals(aBook.getTitle())) && (!books.get(index).isOnLoan())){
                 return true;
             }
             index++;
@@ -95,10 +86,8 @@ public class Library
      *  Creates a for each loop, looking at the element entry of
      *  type Books in list books, and printing that entry out.
      */
-    public void listAllBooks()
-    {
-        for(Book entry : books)
-        {
+    public void listAllBooks(){
+        for(Book entry : books){
             System.out.println(entry);
         }
     }
@@ -111,11 +100,9 @@ public class Library
      *  loan status of that book to true. Otherwise it increments
      *  the index and starts again.
      */
-    public void loanBook(Book aBook)
-    {
+    public void loanBook(Book aBook){
         int index = 0;
-        while(index<books.size())
-        {
+        while(index<books.size()){
             if(books.get(index).getId().equals(aBook.getId())){
                 books.get(index).setOnLoan(true);
             }
@@ -132,12 +119,10 @@ public class Library
      *  .size() method, this means the list has finished and the
      *  book is not there. In that case, book not found is printed.
      */
-    public void removeBook(Book aBook)
-    {
+    public void removeBook(Book aBook){
         int index = 0;
         Book bookToCheck = aBook;
-        while(index<books.size())
-        {
+        while(index<books.size()){
             if((books.get(index).getId().equals(bookToCheck.getId()))){
                 books.remove(index);
             }

@@ -9,8 +9,7 @@ package com.company;
  * Gives each book the fields title of the book, author, id number
  * and if it is onLoan as starting fields.
  */
-public class Book
-{
+public class Book{
     // Q1b create fields for the book objects.
     private String author;
     private String title;
@@ -21,53 +20,46 @@ public class Book
      *  Constructs a book object with Title, Author and ID set by
      *  user, with onLoan status set to false by default.
      */
-    public Book(String anAuthor, String aTitle, String anId)
-    {
+    public Book(String anAuthor, String aTitle, String anId){
         author = anAuthor;
         title = aTitle;
         id = anId;
         onLoan = false;
-
     }
 
 
     /**
      *  Gets the author of the book.
      */
-    public String getAuthor()
-    {
+    public String getAuthor(){
         return author;
     }
 
     /**
      *  Gets the title of the book.
      */
-    public String getTitle()
-    {
+    public String getTitle(){
         return title;
     }
 
     /**
      *  Gets the id of the book.
      */
-    public String getId()
-    {
+    public String getId(){
         return id;
     }
 
     /**
      *  Gets the loan status of the book.
      */
-    public boolean isOnLoan()
-    {
+    public boolean isOnLoan(){
         return onLoan;
     }
 
     /**
      *  Sets the loan status to either true or false.
      */
-    public void setOnLoan(boolean isOnLoan)
-    {
+    public void setOnLoan(boolean isOnLoan){
         onLoan = isOnLoan;
     }
 
@@ -77,16 +69,12 @@ public class Book
      * " (On Loan)"; if it is false will return
      * "Title: " + title + " Author: " + author + " (Available)";
      */
-    public String toString()
-    {
-        if (onLoan)
-        {
+    public String toString(){
+        if (onLoan){
             return "Title: " + title + ", Author: " + author + " (on loan)";
-        }else
-        {
+        }else{
             return "Title: " + title + ", Author: " + author + " (available)";
         }
-
     }
 
     /**
@@ -98,18 +86,14 @@ public class Book
      * number is 0 it will verify it and return true. If not it will return
      * false.
      */
-    public boolean verifyId()
-    {
+    public boolean verifyId(){
         int total = 0;
         int count = 0;
         int length = id.length();
-        if (length != 7)
-        {
+        if (length != 7){
             return false;
-        }else
-        {
-            while(count < length)
-            {
+        }else{
+            while(count < length){
                 int character = id.charAt(count);
                 int ch = character % 10;
                 total += ch;
